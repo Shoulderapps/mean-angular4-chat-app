@@ -1057,13 +1057,14 @@ function connectToCsServer(package, sender, text){
 
 function sendRequestToDialogFlow(package, text, sender, callback){
   detectLanguage(text, function(detectedLanguage){
-
+    console.log(detectedLanguage);
     if (detectedLanguage != "error"){
       if ((detectedLanguage === "zh-CN")||(detectedLanguage === "zh-HK")||(detectedLanguage === "zh-TW")){
         detectedLanguage = "zh-CN"
-      } else {
+      } 
+    }else {
         detectedLanguage = "en"
-      }
+    }
 
     console.log(detectedLanguage);
 
@@ -1103,7 +1104,7 @@ function sendRequestToDialogFlow(package, text, sender, callback){
       });
 
       request.end();
-    }
+    
 
   });
 
